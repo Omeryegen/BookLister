@@ -1,0 +1,57 @@
+<%- include("./partials/header"); %> 
+<div class="container col-8 mt-5">
+     <div class="row">
+          <div class="card text-white w-50 bg-transparent p-2 mb-4 mx-auto border border-white">
+               <div class="card-body">
+                    <h3 class="mb-4 text-center">My Book List</h3>
+                    <form action="/" method="post">
+                         <div class="row  mb-3 gx-5">
+                              <div class="d-flex justify-content-center flex-column">
+                                   <label class="row mb-2" for="bookName">Book Name</label>
+                                   <input class=" text-white row bg-transparent border border-top-0 border-end-0 border-start-0 mb-1" id="bookName" autocomplete="off"  type="text" name="bookName">
+                              
+                              </div>          
+                              <div class="d-flex justify-content-center flex-column">
+                                   <label class="row mb-2" for="bookAuthor">Book Author</label>
+                                   <input class=" text-white row border bg-transparent border-top-0 border-end-0 border-start-0" id="bookAuthor" autocomplete="off"  type="text" name="bookAuthor">
+                              </div>          
+                         </div>
+                         <div class="row">
+                              <div class="d-grid gap-2 col-6 mx-auto">      
+                                   <button type="submit" name="add" class="btn btn-light ">Add</button>
+                              </div>     
+                         </div>
+                                  
+                    </form>
+               </div>       
+          </div>
+          <div class="card  bg-transparent col-12 border border-white mb-4">
+               <div class="card-body ">
+                    <table class="table text-center  text-white">
+                    <thead>
+                         <th scope="col">Book Name</th>
+                         <th scope="col">Author</th>
+                         <th >Delete</th>
+                    </thead>
+                   
+                         <% array.forEach(element => { %>
+                              <form action="/delete" method="post">
+                                   <tr>
+                                        <td><%= element.name %></td> 
+                                        <td><%= element.author %></td> 
+                                        <td class="position-relative" >
+                                             <input  onchange="this.form.submit()" style="opacity: 0; z-index: 1;" class="position-absolute w-100 h-100 top-0 start-0" name="id" value="<%= element.id %> " type="checkbox"></input>
+                                             <i style="z-index: 0;"  class="fa-regular fa-trash-can  position-relative">
+                                        </i>
+                                        </td>
+                                   </tr>
+                              </form> 
+                         <% }) %>
+                    </table>
+               </div>
+          </div>
+     </div>
+    
+</div>
+<%- include("./partials/footer"); %> 
+

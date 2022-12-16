@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
+body{
+    background-image: linear-gradient(to bottom right, #A555EC, #F3CCFF);
+    min-height: 100vh;
+    font-family: 'Martian Mono', monospace !important;
+}
+
+input {
+    outline: none;
+}
+
+input[type='checkbox']:hover { 
+    cursor: pointer;
+ }
